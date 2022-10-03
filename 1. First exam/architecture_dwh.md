@@ -1,3 +1,50 @@
+# Data WareHousing
+* Es el proceso que reune y ordena las tareas inherentes a:
+    * Extraccion, Transformacion, consolidacion integracion y centralizacion de datos internos y externos.
+    * Permite el acceso, analisis y exploracion.
+    * Da soporte a la toma de decisiones estrategico y tactico.
+# Data Warehouse
+* Es una base de datos que posee una estructura multidimensional.
+* Es una coleccion de datos orientada al negocio, integrada, variante en el tiempo y no volatil para el soporte de toma de decisiones.
+![image](https://i.postimg.cc/PqN74TbZ/Data-Ware-House.jpg)
+
+* Orientado al negocio
+    * Solo se ingresan datos relevantes.
+    * Se manejan entidades de alto nivel.
+    * La estructura es multidimensional.
+        * Hechos
+            * Son campos claves que se unen a las tablas de dimension.
+            * Son cuantitativas.
+        * Dimension
+            * Son tablas desnormalizadas.
+            * Son cualitativos: jerarquicos o de clasificacion
+            * Ofrecen informacion caracteristicas de las tablas de hechos.
+***
+* Integrada
+    * Implica que los datos de origenes heterogeneos deben ser analizados para asegurar su calidad y limpieza. El proceso que hace esto de denomina Integracion de datos, La tecnica mas utilizadas es el de:
+        * ETL (Extraction, Transformation and Load)
+        * Origene de datos mas comunes:
+            * Producidas por tipos de usuario
+            * Producidas por areas o departamentos de la org.
+            * Producidas por diferentes data sources.
+***
+* Variante en el tiempo
+    * En el DW los datos son almacenados junto a datos historicos y cada dato es marcado con su sello de tiempo. (timestamps)
+    * Mediante ese sello se puede viajar a diferentes versiones de una misma situacion.
+***
+* No volatil
+    * La informacion solamente sera util para el analisis siempre y cuando sea estable.
+    * Es decir que no cambian hasta la siguiente subida de datos.
+![image](https://i.postimg.cc/tCRfjkbR/No-volatil.jpg)
+
+* Cualidades del DW
+    * Maneja un gran volumen de datos
+    * Almacena datos agregados, actuales e historicos
+    * Estructura los datos de forma multidimensional
+    * Tiene redundancia minima
+***
+# DHW vs DW
+![image](https://i.postimg.cc/SscPzjdQ/Diferencia-entre-DHW-DW.jpg)
 # Arquitectura del DWH
 ![image](https://user-images.githubusercontent.com/30439829/193495396-3e392cad-2829-487b-b985-72635fb5b154.png)</br>
 
