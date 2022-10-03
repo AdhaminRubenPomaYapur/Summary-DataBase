@@ -6,6 +6,7 @@
 # Data Warehouse
 * Es una base de datos que posee una estructura multidimensional.
 * Es una coleccion de datos orientada al negocio, integrada, variante en el tiempo y no volatil para el soporte de toma de decisiones.
+
 ![image](https://i.postimg.cc/PqN74TbZ/Data-Ware-House.jpg)
 
 * Orientado al negocio
@@ -35,16 +36,18 @@
 * No volatil
     * La informacion solamente sera util para el analisis siempre y cuando sea estable.
     * Es decir que no cambian hasta la siguiente subida de datos.
-![image](https://i.postimg.cc/tCRfjkbR/No-volatil.jpg)
 
-* Cualidades del DW
+![image](https://i.postimg.cc/tCRfjkbR/No-volatil.jpg)
+***
+## Cualidades del DW
     * Maneja un gran volumen de datos
     * Almacena datos agregados, actuales e historicos
     * Estructura los datos de forma multidimensional
     * Tiene redundancia minima
 ***
-# DHW vs DW
+## DHW vs DW
 ![image](https://i.postimg.cc/SscPzjdQ/Diferencia-entre-DHW-DW.jpg)
+***
 # Arquitectura del DWH
 ![image](https://user-images.githubusercontent.com/30439829/193495396-3e392cad-2829-487b-b985-72635fb5b154.png)</br>
 
@@ -53,38 +56,40 @@
 - Los datos se integran, transforman y cargan en el DW.
 - En el DW se contruyen cubos multidimensionales.
 - Se accede al Cubo del DW con herramientas de consulta o analisis.
-
+***
 ## 1. Data sources
-Son datos transaccionales que genera una empresa a diario. Tambien pueden ser datos externos complementarios de multiples fuentes.
+Son datos transaccionales que genera una empresa a diario. Tambien pueden ser datos externos complementarios de multiples fuentes.<br>
 ![image](https://user-images.githubusercontent.com/30439829/193496221-ebafdfa3-38df-445f-a2e0-587ffca9d59c.png)</br>
-
+***
 ## 2. Load Manager
 Ejecuta y calendariza los procesos de integracion:
 - Extrae datos de data sources.
 - Manipula, integra y transforma los datos.
 - Carga los resultados en el DW.
-### Integracion de datos
-Tecnicas y procesos para extraer, manipular, controlar, integrar, depurar, cargar y actualizar el DW. Desde la extraccion hasta la carga de datos en el DW.
+***
+## Integracion de datos
+    - Tecnicas y procesos para extraer, manipular, controlar, integrar, depurar, cargar y actualizar el DW. Desde la extraccion hasta la carga de datos en el DW.
+***
+## Proceso ETL
+    - Extraccion.- Datos de diversas fuentes son extraidos y persistidos en almacenamiento(s) intermedio(s) (Staging Area) para poder:
+        - Manipular datos sin sobrecargar el data sources
+        - Crear una capa de abstraccion entre lectura y carga
+        - Almacenar y gestionar metadatos generados
+        - Facilitar la integracion
 
-### Proceso ETL:
-### Extraccion 
-Datos de diversas fuentes son extraidos y persistidos en almacenamiento(s) intermedio(s) (Staging Area) para poder:
-- Manipular datos sin sobrecargar los data sources.
-- Crear una capa de abstraccion entre lectura y carga.
-- Almacenar y gestionar metadatos generados.
-- Facilitar la integracion.
-
-### Transformacion
-Procesa los datos para hacerlos consistentes, compatibles y congruentes con el DW.</br>
-Algunos casos comunes:
-#### - Codificacion
+    - Transformacion.- Procesa los datos para hacerlos consistentes, compatibles y congruentes con el  DW.
+        - Codificacion
+        - Medida de Atributos
+        - Fuentes multiples
+        - Proceso de (Data Cleansing - Data Quality)
+        - Algunos casos comunes:
+- Codificacion <br>
 ![image](https://user-images.githubusercontent.com/30439829/193498031-d5353160-9e0b-4a5e-b4c7-ed753bdaa6bb.png)</br>
-#### - Medida de Atributos
+- Medida de Atributos<br>
 ![image](https://user-images.githubusercontent.com/30439829/193498195-691a1494-f3b4-4c12-8251-8353d5053e4b.png)</br>
-#### - Fuentes multiples (elegir una)
+- Fuentes multiples (elegir una) <br>
 ![image](https://user-images.githubusercontent.com/30439829/193498270-05f7c6c9-f0b1-442f-96b8-8467043ff6e8.png)</br>
-Procesos que realiza:
-#### - Data Cleansing
+## - Data Cleansing
 Elimina datos erroneos o irrelevantes y arregla inconsistencias.</br>
 Acciones contra:
 |  Outliers (Datos anomalos) | Missing Values (Datos faltantes) |
@@ -96,11 +101,21 @@ Acciones contra:
 | - Reemplazar valor | - Reemplazar valor |
 | - Discretizar valores de las columnas | - Esperar a que esten disponibles |
 
-### Carga
-Ejecuta tareas relacionadas con: 
-#### - Carga Inicial (Initial Load)
-Primera carga al DW, gran cantidad de registros que toman un tiempo considerable.
-#### - Actualizacion periodica (Update).
+- Carga.- Carga los datos y actualiza el DW.
+    - Carga Inicial (Initial Load):
+            Primera carga al DW, gran cantidad de registros que toman un tiempo considerable.
+
+## - Actualizacion periodica (Update).
+Insercion de pequeños volumenes de datos. Solo agrega al DW datos de la ultima actualizacion **(Delta de cambios)**.
+| Acciones para identicar Delta de cambios |
+| --- |
+| - Cotejar instancias de Data Sources. |
+| - Utilizar Triggers para informar cambios de Data Sources. |
+| - Recurrir a Time Stamps. |
+| - Comparar datos existentes entre Data Source y DW. |
+| - Tecnicas mixtas |
+
+## - Actualizacion periodica (Update).
 Insercion de perqueños volumenes de datos. Solo agrega al DW datos de la ultima actualizacion **(Delta de cambios)**.
 | Acciones para identicar Delta de cambios |
 | --- |
@@ -109,13 +124,20 @@ Insercion de perqueños volumenes de datos. Solo agrega al DW datos de la ultima
 | - Recurrir a Time Stamps. |
 | - Comparar datos existentes entre Data Source y DW. |
 | - Tecnicas mixtas |
-#### Carga Total (Full Load)
-Se da cuando este control requiere demasiado esfuerzo. Permite cargar el DW desde cero. El DW se debe vaciar previamente.
+## Carga Total (Full Load)
+Se da cuando este control requiere demasiado esfuerzo. Permite cargar el DW desde cero. El DW se debe vaciar previamente.<br>
+| Incluye los siguientes conceptos |
+| --- |
+| Relaciones muchos a muchos|
+| Claves subrogradas|
+| Dimensiones lentamente cambiantes|
+| Dimensiones degeneradas|
 
-### 3. Data Warehouse Manager
+![image](https://i.postimg.cc/65vSgG0Y/Proceso-Load.jpg)
+# 3. Data Warehouse Manager
 
-### 4. Query Manager 
+# 4. Query Manager 
 
-### 5. Software Analytics
+# 5. Software Analytics
 
-### 6. Users
+# 6. Users
