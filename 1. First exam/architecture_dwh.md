@@ -135,9 +135,127 @@ Se da cuando este control requiere demasiado esfuerzo. Permite cargar el DW desd
 
 ![image](https://i.postimg.cc/65vSgG0Y/Proceso-Load.jpg)
 # 3. Data Warehouse Manager
+- Esta compuesto por:
+    - El DW (SGBD)
+    - Conexiones a base de datos y otros data sources
+    - Las estrcuturas de datos (Cubos multidimensionales, Business Models, etc)
+    - Informacion de autenticacio y autorizacion
+    - Otros metadatos
+***
+- Base de datos multidimensional
+    - Compuesto por:
+        - Tablas de hechos
+        - Tablas de dimensiones
+***
+- Tipos de Modelos logicos
+    - Existen tres formas de modelar las tablas de hechos y dimensiones.
+        - Esquema en estrella (Star Scheme)<br>
+        ![image](https://i.postimg.cc/wjGHK4bL/Esquema-estrella.jpg)<br>
+        - Esquema copo de nieve (Snowflake Scheme)<br>
+        ![image](https://i.postimg.cc/d0ZFJRzX/Esquema-copo-de-nieve.jpg)<br>
+        - Esquema constelacion (Starflake Scheme)<br>
+        ![image](https://i.postimg.cc/ydqHxgKN/Esquema-constelacion.jpg) <br>
+    - Se diferencia por:
+        - Estrella tiene un centro y no tiene ramificacion en los extremos
+        - Copo de nieve tiene un centro y tiene ramificacion en los extremos
+        - Constelacion es la union de mas estrellas.
+    - Estos modelos facilitan el acceso a consultas complejas
+    - Estan desnormalizadas o semi desnormalizadas reduciendo los joins.
+***
+- Tipos de implementacion
+    - Relacional - ROLAP
+    - Multidimensional - MOLAP
+    - Hibrido - HOLAP
+***
+- Tablas de dimensiones
+    - Contiene datos cualitativos
+    - Represetan aspectos de interes
+    - Pueden filtrar y manipular hechos almacenados.
+    - Contiene:
+        - Clave principal
+        - Claves foraneas
+        - Datos de referencia primarios
+        - Datos de referencia secundarios
 
+    - Tiempo
+        - Toda la informacion posee un sello de tiempo que determina la ocurrencia del hecho especifico, representando versiones de una misma situacion.
+    - Fecha y hora
+        - Se confecciona dos tablas.
+            - Una en fechas
+            - Una en horas
+***
+- Tablas de hechos
+    - Contienen datos cuantitativos
+    - Filtrados, agrupados y explorados a traves de condiciones definidas en tablas de dimensiones.
+    - Hechos vs Indicadores
+        - Los hechos son aquellos que residen en una tabla
+        - Los indicadores hacen uso de los hechos para obtener un valor analizable
+            - Se hacen agregaciones sobre el mismo.
+    - Hechos basicos
+        - Son aquellos que se encuentran representados por un campo de una tabla.
+    - Hechos derivados
+        - Son aquellos que se obtienen a partir de una expresion, combinando algunos hechos con operaciones matematicas.
+    - Agregadas
+        - Se genera luego de hacer la consulta a la tabla de hechos. (Respuesta para analisis)
+    - Preagregadas
+        - Se genera antes de la consulta a la tabla de hechos. (Al momento de poblar DW)
+***
+- OLTP vs DW OLAP
+    - OLTP (DB Transaccional)
+        - Orientado al procesamiento
+        - Matricial
+        - Normalizado
+        - Instancia de objeto
+    - OLAP (DB Analitica)
+        - Orientado al negocio (consulta y analisis)
+        - Multidimensional
+        - desnormalizado
 # 4. Query Manager 
-
+- Encargado de realizar operaciones necesarias para soportar los procesos de gestion y ejecucion:
+    - Slice & dice
+        - Dar vuelta al cubo y rebanar encontrado el dato que me interesa.
+    - Consultas relacionales
+    - Consultas propias de analisis de datos.
+    - Drill - Down
+        - Implica ir de lo general a lo especifico.
+    - Drill - Up
+        - Implica ir de lo especifico a lo general.
+    - Drill - Across
+        - Implica agregar un atributo a la consulta como nuevo criterio de analisis.
+    - Roll - Across
+        - Implica eliminar el criterio de analisis.
+    - Pivot
+        - Permite seleccionar el order de visualizacion de los atributos e indicadores.
+    - Page
+        - Presenta el cubo dividido en secciones, a traves de valores de atributo.
+    - Drill - Through
+        - Permite visualizar cuales son los datos relacionados al valor de un indicador.
+    
 # 5. Software Analytics
+- Nos referimos a todas aquellas herramientas de software mediantes las cuales podremos explorar y explotar los datos. <br>
+- Interaccion
+    ![image](https://i.postimg.cc/wTDJ74rp/Interaccion.jpg) <br>
+    - caracteristicas
+        - Accesibilidad
+        - Apoyo en la toma de decisiones
+        - Orientacion a los usuarios finales
+            - Reporting
+            - OLAP
+            - Dashboards
+            - Data mining
 
 # 6. Users
+| acciones |Users OLTP | Users DW|
+| --- | --- | --- |
+| acceso concurrente| - muchos| - pocos|
+| tipo de consultas|- predefinidos| - complejos, no predecibles y no anticipadas|
+| registros consultados|- pocos| - muchos|
+| tiempo de respuesta|- critico| - no critico|
+| acciones permitidas|- Crud| - Consulta|
+***
+# 7. Arquitectura de 2 niveles
+![image](https://i.postimg.cc/Dfdtrjhn/Arquitectura-de-dos-niveles.jpg)
+# 8. Arquitectura de 3 niveles
+![image](https://i.postimg.cc/ZKbXV8Y3/Arquitectura-de-tres-niveles.jpg)
+# 9. Arquitectura ascendente
+![image](https://i.postimg.cc/3NBV3R1d/Arquitectura-ascendente.jpg)

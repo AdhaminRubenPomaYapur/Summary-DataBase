@@ -1,4 +1,4 @@
-# Data WareHouse
+# Business Intelligence
     * Los datos son administrados a traves de sistemas transaccionales y se almacenan en bases de datos relacionales.
 ![image](https://i.postimg.cc/mr6D5KZv/Datos-como-producto-secundario.jpg)
 ## Definiendo al BI
