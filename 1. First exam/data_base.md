@@ -132,3 +132,45 @@
     3. Capa de datos
         * Es donde residen los datos, encargada de acceder a los mismos y responder solicitudes
             de almacenamiento o recuperacion de informacion desde la capa de negocio.
+***
+# 8. MDF (Main data file)
+    * Es el archivo de base de datos principal .mdf que contiene los datos, asi como un esquema.
+***
+# 9. LDF (Load data file)
+    * Es un archivo de base de datos que almacena todos los registros de transacciones / eventos
+        que se ejecutan en la base de datos.
+***
+# 10. Detach
+    * Desvincula el archivo del servidor de base de datos para poder mover y copiarlo.
+        Sirve en caso se llene el disco duro o cambio de disco.
+***
+# 11. Modelo de implementacion de una base de datos
+    1. Monolitico - Multiusuario (mainframe)
+        * Una aplicacion desde un mismo lugar sostiene programas y bases de datos.
+
+        1. Arreglo de discos: 
+            * Es un conjunto de discos que se agrupan para lograr objetivos de redundancia
+                o mejorar el rendimientos en los procesos de lectura y escritura, en los 
+                volumenes de almacenamiento.
+
+    2. Anillo Optico
+        * Se conectaban diferentes computadoras a traves de un mismo cable.
+
+    3. Cableado UTP
+        * En red tenia error cuando dos usuarios manipulaban un mismo registro a la vez.
+        * Ansi SQL resuelve este error poniendo bloqueos y tiempos de procesamiento.
+
+    4. Cliente servidor
+        * El servidor proporciona la informacion y el cliente es el que solicita esa informacion
+            desde otra computadoras.
+
+    5. Computacion distribuida
+        * Son redes de computadoras que tienen alta disponibilidad, alta cohexion y bajo 
+            acomplamiento por si alguna maquina deja de funcionar, esta no afecte a los demas.
+
+    6. Servidores conectados a la nube
+        * Esto es la integracion de nuestro servidores a una red mas grande con el fin de
+            optimizar tiempos de respuesta y distribucion de carga.
+***
+# 12. Analisis de datos
+    * Es el que permite ver como funciona el sistema que opera en la empresa.
