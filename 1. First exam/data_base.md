@@ -64,7 +64,7 @@
                         * Inalterable
                         * Nunca nulo
             2. Claves foraneas
-                * Es una clave foranea en un lugar foraneo, pueden no ser unicas.
+                * Es una clave primaria en un lugar foraneo, pueden no ser unicas.
             3. Claves primarias compuestas
                 * Usa dos claves foraneas y se las suma entre si.
                 * Usa la menor cantidad posible de atributos y que no tiendan a cambiar.
@@ -79,43 +79,44 @@
             * Son los datos centrales absolutamente esenciales para ejecutar operaciones.
 ***
     2. Desarrollador - Diseñador:
-        1. DDL (Lenguaje de definicion de datos):
-            * Es un lenguaje de programacion para definir estrucuturas de datos proporcionado 
-                por los gestores de base de datos. Ofrece tres sentencias:
-                    1. CREATE
-                        * Crear base de datos, tablas, vistas, procedure, etc.
-                    2. ALTER
-                        * Modificar la estructura, añadir o borrar columnas de una tabla.
-                    3. DROP
-                        * Elimina objetos de la estructura o la base de datos.
+        1. Componentes de SQL:
+            1. DDL (Lenguaje de definicion de datos):
+                * Es un lenguaje de programacion para definir estrucuturas de datos proporcionado 
+                    por los gestores de base de datos. Ofrece tres sentencias:
+                        1. CREATE
+                            * Crear base de datos, tablas, vistas, procedure, etc.
+                        2. ALTER
+                            * Modificar la estructura, añadir o borrar columnas de una tabla.
+                        3. DROP
+                            * Elimina objetos de la estructura o la base de datos.
 
-        2. DML (Lenguaje de Manipulacion de datos):
-            * Permite a los usuarios introducir datos para posteriormente realizar tareas de
-                consultas o modificacion de los datos. Ofrece 4 formas de manipulacion de datos:
-                    1. Select
-                        * Realizar consultas
-                    2. Insert
-                        * Insertar valores
-                    3. Update
-                        * Modificar datos
-                    4. Delete
-                        * Eliminar datos
-        3. DRL/DSL (Lenguaje de recuperacion de datos / Lenguaje de seleccion de datos)
-            * Ofrece los comandos para recuperar datos del servidor, manipula los datos como 
-                objetivo, en si ofrece todo lo anterior de un select. Ofrece 6 clausulas dentro 
-                del contexto select:
-                1. FROM
-                    * Seleccion de un nombre de tabla en la base de datos.
-                2. WHERE
-                    * Especifica que filas va a traer.
-                3. GROUP BY
-                    * Ordena los datos en grupo
-                4. HAVING
-                    * Selecciona entre los grupos por Group BY
-                5. ORDER BY
-                    * Especifica un orden en los datos
-                6. AS
-                    * Provee un alias temporal para renombrar una columna de la tabla
+            2. DML (Lenguaje de Manipulacion de datos):
+                * Permite a los usuarios introducir datos para posteriormente realizar tareas de
+                    consultas o modificacion de los datos. Ofrece 4 formas de manipulacion de datos:
+                        1. Select
+                            * Realizar consultas
+                        2. Insert
+                            * Insertar valores
+                        3. Update
+                            * Modificar datos
+                        4. Delete
+                            * Eliminar datos
+            3. DRL/DSL (Lenguaje de recuperacion de datos / Lenguaje de seleccion de datos)
+                * Ofrece los comandos para recuperar datos del servidor, manipula los datos como 
+                    objetivo, en si ofrece todo lo anterior de un select. Ofrece 6 clausulas dentro 
+                    del contexto select:
+                    1. FROM
+                        * Seleccion de un nombre de tabla en la base de datos.
+                    2. WHERE
+                        * Especifica que filas va a traer.
+                    3. GROUP BY
+                        * Ordena los datos en grupo
+                    4. HAVING
+                        * Selecciona entre los grupos por Group BY
+                    5. ORDER BY
+                        * Especifica un orden en los datos
+                    6. AS
+                        * Provee un alias temporal para renombrar una columna de la tabla
 ***
     3. Administrador de base de datos:
         * Se encarga de los datos vivan una vida tranquila, help check diario, almacenamiento de registro y cuantas transacciones se hicieron.

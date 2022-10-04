@@ -2,8 +2,8 @@
     * Los datos son administrados a traves de sistemas transaccionales y se almacenan en bases de datos relacionales.
 ![image](https://i.postimg.cc/mr6D5KZv/Datos-como-producto-secundario.jpg)
 ## Definiendo al BI
-    * Almacenar y procesar grandes cantidades de datos.
-    * Analisis y exploracion de dichos datos.
+    * Almacena y procesa grandes cantidades de datos.
+    * Analiza y explora dichos datos.
     * Objetivo: Tener conocimiento orientado a la toma de decisiones.
 ![image](https://i.postimg.cc/633WVcdM/Definiendo-al-BI.jpg) <br>
 * La informacion debe ser: 
@@ -46,6 +46,6 @@
     * Reduce el tiempo minimo para recoger datos relevantes
     * Automatiza la actualizacion de datos a traves de procesos pre definidos.
     * Proporciona herramientas de analisis para comparar y explorar datos.
-    * Completa el circula de decision a la accion.
+    * Completa el circulo de decision a la accion.
     * Permite predecir el comportamiento futuro.
 ***

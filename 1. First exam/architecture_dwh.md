@@ -70,7 +70,7 @@ Ejecuta y calendariza los procesos de integracion:
 ## Integracion de datos
     - Tecnicas y procesos para extraer, manipular, controlar, integrar, depurar, cargar y actualizar el DW. Desde la extraccion hasta la carga de datos en el DW.
 ***
-## Proceso ETL
+### Proceso ETL
     - Extraccion.- Datos de diversas fuentes son extraidos y persistidos en almacenamiento(s) intermedio(s) (Staging Area) para poder:
         - Manipular datos sin sobrecargar el data sources
         - Crear una capa de abstraccion entre lectura y carga
@@ -101,7 +101,7 @@ Acciones contra:
 | - Reemplazar valor | - Reemplazar valor |
 | - Discretizar valores de las columnas | - Esperar a que esten disponibles |
 
-- Carga.- Carga los datos y actualiza el DW.
+## Carga.- Carga los datos y actualiza el DW.
     - Carga Inicial (Initial Load):
             Primera carga al DW, gran cantidad de registros que toman un tiempo considerable.
 
@@ -115,15 +115,6 @@ Insercion de pequeños volumenes de datos. Solo agrega al DW datos de la ultima 
 | - Comparar datos existentes entre Data Source y DW. |
 | - Tecnicas mixtas |
 
-## - Actualizacion periodica (Update).
-Insercion de perqueños volumenes de datos. Solo agrega al DW datos de la ultima actualizacion **(Delta de cambios)**.
-| Acciones para identicar Delta de cambios |
-| --- |
-| - Cotejar instancias de Data Sources. |
-| - Utilizar Triggers para informar cambios de Data Sources. |
-| - Recurrir a Time Stamps. |
-| - Comparar datos existentes entre Data Source y DW. |
-| - Tecnicas mixtas |
 ## Carga Total (Full Load)
 Se da cuando este control requiere demasiado esfuerzo. Permite cargar el DW desde cero. El DW se debe vaciar previamente.<br>
 | Incluye los siguientes conceptos |
@@ -164,8 +155,20 @@ Se da cuando este control requiere demasiado esfuerzo. Permite cargar el DW desd
 ***
 - Tipos de implementacion
     - Relacional - ROLAP
+        - Los cubos se generan en el momento en que se realizan las consultas. El proceso se describe en:
+            - Metadata del cubo: Indicadores, atributos, jerarquias, etc.
+            - Almacenar metadata.
+            - Realizar el mapeo del visor OLAP.
+            - ROLAP hace uso exahustivo del cache evitando consultar dos veces el mismo dato.
     - Multidimensional - MOLAP
+        - Precalcula los cubos multidimensionales y los almacena fisicamente. El proceso se describe en:
+            - Seleccionar indicadores, atributos, jerarquias, etc.
+            - Precalcular datos del cubo. Todas las combinaciones posibles de jerarquias de cada dimension.
+            - Precalcular y guardar el cubo cada que se actualiza el DW.
     - Hibrido - HOLAP
+        - Combina las anteriores dos implementaciones.
+            - ROLAP para navegar y explorar a bajo nivel de granularidad.
+            - MOLAP para explotacion de datos precalculados.
 ***
 - Tablas de dimensiones
     - Contiene datos cualitativos
@@ -233,7 +236,7 @@ Se da cuando este control requiere demasiado esfuerzo. Permite cargar el DW desd
     
 # 5. Software Analytics
 - Nos referimos a todas aquellas herramientas de software mediantes las cuales podremos explorar y explotar los datos. <br>
-- Interaccion
+- Interaccion <br>
     ![image](https://i.postimg.cc/wTDJ74rp/Interaccion.jpg) <br>
     - caracteristicas
         - Accesibilidad
@@ -253,9 +256,10 @@ Se da cuando este control requiere demasiado esfuerzo. Permite cargar el DW desd
 | tiempo de respuesta|- critico| - no critico|
 | acciones permitidas|- Crud| - Consulta|
 ***
-# 7. Arquitectura de 2 niveles
+# Implementacion de un DW
+## 7. Arquitectura de 2 niveles
 ![image](https://i.postimg.cc/Dfdtrjhn/Arquitectura-de-dos-niveles.jpg)
-# 8. Arquitectura de 3 niveles
+## 8. Arquitectura de 3 niveles
 ![image](https://i.postimg.cc/ZKbXV8Y3/Arquitectura-de-tres-niveles.jpg)
-# 9. Arquitectura ascendente
+## 9. Arquitectura ascendente
 ![image](https://i.postimg.cc/3NBV3R1d/Arquitectura-ascendente.jpg)
